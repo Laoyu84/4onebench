@@ -19,12 +19,12 @@ if not os.path.exists(constant.log_path):
 
 # 创建一个logger
 logger = logging.getLogger('my_logger')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # 创建一个handler，用于写入日志文件
 fh = logging.FileHandler(log_file_path)
 #fh.setLevel(logging.INFO)
-fh.setLevel(logging.DEBUG)
+fh.setLevel(logging.INFO)
 
 # 创建一个handler，用于将日志输出到控制台
 ch = logging.StreamHandler()

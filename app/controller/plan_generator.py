@@ -37,9 +37,9 @@ def enrich_question(q: Query, schemas, routes, few_shots)->str:
     #选择合适的few-shot examples
     few_shots_controller = FewShotsController()
     selected_fs, related = few_shots_controller.get_question_few_shots(q,few_shots, bench_mark=0.2)
-    logger.info(f"问题{q.id}使用的{len(selected_fs)}个Few-Shots案例包括:")
+    logger.debug(f"问题{q.id}使用的{len(selected_fs)}个Few-Shots案例包括:")
     for i, fs in enumerate(selected_fs):
-        logger.info(f"问题{fs.id}.{fs.question}，相关度:{related[i]}")
+        logger.debug(f"问题{fs.id}.{fs.question}，相关度:{related[i]}")
     
     examples = "".join(f.get_enriched_examples() for f in selected_fs)
     usr_msg = ENRICH_USER.format(
@@ -49,32 +49,6 @@ def enrich_question(q: Query, schemas, routes, few_shots)->str:
                             examples = examples                          
                             )
     return complete(ENRICH_SYS,usr_msg)
-"""
-model = os.getenv('MODEL')
-    if model in constant.GLM_FAMILY:
-        messages = zhipu.format_messages(ENRICH_SYS,usr_msg)
-        result = zhipu.completion(messages, 
-                                  model= model,
-                                  temperature=0.1)
-    elif model in constant.OPENAI_FAMILY:
-        messages = openai.format_messages(ENRICH_SYS,usr_msg)
-        result = openai.completion(messages, 
-                                   model= model, 
-                                   temperature=0)
-    elif model in constant.QWEN_FAMILY:
-        messages = qwen.format_messages(ENRICH_SYS,usr_msg)
-        result = qwen.completion(messages, 
-                                model= model, 
-                                temperature=0)
-    elif model in constant.DOUBAOPRO32K:
-        messages = doubao.format_messages(ENRICH_SYS,usr_msg)
-        result = doubao.completion(messages, 
-                                model= model, 
-                                temperature=0)
-    
-    return result
-
-"""
     
 PLAN_SYS = "你说话非常精炼。"
 
@@ -112,9 +86,9 @@ def build(q: Query, schemas, routes, few_shots):
 
     few_shots_controller = FewShotsController()
     selected_fs, related = few_shots_controller.get_enriched_few_shots(q,few_shots, bench_mark=0.6)
-    logger.info("该问题使用的Few-Shots案例包括:")
+    logger.debug("该问题使用的Few-Shots案例包括:")
     for i, fs in enumerate(selected_fs):
-        logger.info(f"问题{fs.id}.{fs.question}，相关度:{related[i]}")
+        logger.debug(f"问题{fs.id}.{fs.question}，相关度:{related[i]}")
     
     examples = "".join(f.get_instructions_examples() for f in selected_fs)
     usr_msg = PLAN_USER.format(
@@ -124,29 +98,4 @@ def build(q: Query, schemas, routes, few_shots):
                             examples = examples                          
                             )
     return complete(PLAN_SYS, usr_msg)
-"""
- model = os.getenv('MODEL')
-    if model in constant.GLM_FAMILY:
-        messages = zhipu.format_messages(PLAN_SYS,usr_msg)
-        result = zhipu.completion(messages, 
-                                  model=model,
-                                  temperature=0.1)
-    elif model in constant.OPENAI_FAMILY:
-        messages = openai.format_messages(PLAN_SYS,usr_msg)
-        result = openai.completion(messages, 
-                                   model= model, 
-                                   temperature=0)
-    elif model in constant.QWEN_FAMILY:
-        messages = qwen.format_messages(PLAN_SYS,usr_msg)
-        result = qwen.completion(messages, 
-                                model= model, 
-                                temperature=0)
-    elif model in constant.DOUBAOPRO32K:
-        messages = doubao.format_messages(PLAN_SYS,usr_msg)
-        result = doubao.completion(messages, 
-                                model= model, 
-                                temperature=0)
-    return result
-
-"""
    

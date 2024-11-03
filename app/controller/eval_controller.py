@@ -21,17 +21,18 @@ class EvalController:
     
     def scoring_by_few_shot(self, fs, schemas, routes, few_shots):
         try: 
+            logger.info(f"处理问题{fs.id}...")
             run_q = Query(fs.question,id=fs.id,question_embeddings=fs.question_embeddings, enriched_embeddings=fs.enriched_embeddings)
             #run_q.set_question_embeddings()
-            logger.info("生成Enriched question:")
+            logger.debug("生成Enriched question:")
             run_q.enriched = enrich_question(run_q, schemas,routes,few_shots)
             #run_q.set_enriched_embeddings()
-            logger.info(run_q.enriched)
-            logger.info("生成Routine:")
+            logger.debug(run_q.enriched)
+            logger.debug("生成Routine:")
             run_q.answer = build(run_q,schemas,routes,few_shots)
-            logger.info(run_q.answer)
+            logger.debug(run_q.answer)
             result = verify(fs,schemas,routes,run_q.answer)
-            logger.info(result)
+            logger.debug(result)
             return {"id": fs.id, 
                             "question": fs.question,
                             "s_enriched": fs.enriched,

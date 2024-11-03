@@ -7,6 +7,7 @@ from controller.few_shots_controller import FewShotsController
 from controller.api_router_controller import APIRouterController
 from llms.general import verify_api_key
 from util import constant
+from util.logger import logger
 
 # functions
 def load_css(css_file):
@@ -14,12 +15,12 @@ def load_css(css_file):
     with open(css_file) as f:
         st.html(f'<style>{f.read()}</style>')
 
+# Error message
 @st.dialog("提示")
 def show_msg(msg):
     if isinstance(msg, Exception):
         # 提示error messages
-        #st.write(msg.__repr__())
-        st.write(msg)
+        st.write(msg.__repr__())
     else:
         st.write(msg)
 
@@ -65,16 +66,17 @@ tab_eval,tab_questionnir = st.tabs(["评估", "问题列表"])
 with tab_eval:
     if st.button("开始测评!", type="primary"):
         try:
+            #setup API_KEY and END_POINT for Doubao
             if len(API_KEY) == 0 or ('END_POINT' in locals() and len(END_POINT) == 0):
                 msg = ""
                 if len(API_KEY) == 0: msg += "请提供API Key。"
                 if 'END_POINT' in locals() and len(END_POINT) == 0: msg += "请提供模型接入点"
                 show_msg(msg)
             else:
-                #setup API_KEY
                 os.environ['API_KEY'] = API_KEY
                 if 'END_POINT' in locals() and len(END_POINT) != 0:
                     os.environ['END_POINT'] = END_POINT
+                #try a hello message to verify api key
                 verify_api_key()
         
                 evals = []
@@ -86,8 +88,8 @@ with tab_eval:
                         e = st.session_state.eval_controller.scoring_by_few_shot(fs, st.session_state.schemas, st.session_state.routes, st.session_state.few_shots)
                         evals.append(e)
                     status.update(label="数据处理完成", state="complete", expanded=False)
+                    logger.info("问题处理完毕。")
                 if evals and len(evals) > 0:
-                    #print(f"长度为:{len(evals)}")
                     st.title(f"{st.session_state['model']}测评结果:")
                     total, corrected, percent = st.session_state.eval_controller.metrics(evals)
                     
