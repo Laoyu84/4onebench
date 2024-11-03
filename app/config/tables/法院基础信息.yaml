@@ -1,0 +1,10 @@
+table: 法院基础信息
+columns:
+  - name: 法院名称
+    desc: 也可称为'审理法院'
+  - name: 法院负责人
+  - name: 成立日期
+  - name: 法院地址
+    desc: 也可称为'审理地点'
+  - name: 法院联系电话
+  - name: 法院官网

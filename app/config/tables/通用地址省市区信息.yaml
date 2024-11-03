@@ -1,0 +1,6 @@
+table: 通用地址省市区信息
+columns:
+  - name: 地址
+  - name: 省份
+  - name: 城市
+  - name: 区县

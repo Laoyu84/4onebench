@@ -1,0 +1,9 @@
+
+table: 法律地址代字信息
+columns:
+  - name: 法院名称
+  - name: 行政级别
+  - name: 法院级别
+  - name: 法院代字
+  - name: 区划代码
+  - name: 级别

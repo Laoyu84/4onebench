@@ -1,0 +1,7 @@
+table: 通用地址编码
+columns:
+  - name: 省份
+  - name: 城市
+  - name: 城市区划代码
+  - name: 区县
+  - name: 区县区划代码

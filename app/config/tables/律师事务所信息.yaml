@@ -1,0 +1,11 @@
+table: 律师事务所信息
+columns:
+  - name: 律师事务所名称
+  - name: 律师事务所唯一编码
+  - name: 律师事务所负责人
+  - name: 事务所注册资本
+  - name: 事务所成立日期
+  - name: 律师事务所地址
+  - name: 通讯电话
+  - name: 通讯邮箱
+  - name: 律所登记机关

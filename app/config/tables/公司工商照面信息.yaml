@@ -1,0 +1,23 @@
+table: 公司工商照面信息
+columns:
+  - name: 公司名称
+  - name: 登记状态
+  - name: 统一社会信用代码
+    desc: 也可称为'机构代码'18位数字或字符，例如:'913310007200456372'
+  - name: 法定代表人
+  - name: 注册资本
+    desc: 也可称为注册金额
+  - name: 成立日期
+  - name: 企业地址
+    desc: 企业地址不是注册地址
+  - name: 联系电话
+  - name: 联系邮箱
+  - name: 注册号
+  - name: 组织机构代码
+  - name: 参保人数
+  - name: 行业一级
+  - name: 行业二级
+  - name: 行业三级
+  - name: 曾用名
+  - name: 企业简介
+  - name: 经营范围

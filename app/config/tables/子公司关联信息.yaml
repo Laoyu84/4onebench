@@ -1,0 +1,7 @@
+table: 子公司关联信息
+columns:
+  - name: 关联上市公司全称
+  - name: 上市公司关系
+  - name: 上市公司参股比例
+  - name: 上市公司投资金额
+  - name: 公司名称

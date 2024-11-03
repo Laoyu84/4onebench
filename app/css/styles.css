@@ -1,0 +1,35 @@
+/* Container for query items */
+.query-container {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+/* Hover effect for query container */
+.query-container:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border: 2px solid #1E88E5;
+}
+.query-id {
+    color: #666;
+    font-size: 12px;
+}
+.query-question {
+    color: #333;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.query-container:hover .query-question {
+    color: #1E88E5;
+}
+
+.query-container:hover .query-id {
+    color: #1976D2;
+}
