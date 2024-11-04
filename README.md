@@ -28,19 +28,19 @@ Considering the critical factors of response time and accuracy in real business 
 ## Launch the evaluation
 1. Create and activate a new virtual environment 
 ```bash
-python -m venv clean_env
-source clean_env/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 ```
 
 2. Install dependencies
 ```bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 3. Use the following script to launch the evaluation:
 
 ```bash
-% streamlit run app/app.py
+streamlit run app/app.py
 ```
 
 ## License
