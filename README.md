@@ -1,16 +1,20 @@
 # 4onebench
 Routine-Gen is a crucial part for LLM-based agents, enabling them to effectively orchestrate IT assets, such as APIs, to accomplish tasks. 
-![Flow of LLMs-based Agent](arch-1.png)
+![Flow of LLMs-based Agent](images/arch-1.png)
 However, there is a lack of systems to evaluate the effectiveness of LLMs in routine generation in a business context. 
 
 The purpose of **4-One Bench** is to create a lightweight evaluation system that can help users quickly assess the Routine-Gen capabilities of LLMs. 
+
+## Evaluation
+We have conducted an evaluation of models from OpenAI, Zhipu, Ali Cloud, and Doubao. Below are the results regarding their Routine-Gen accuracy:
+![Flow of LLMs-based Agent](images/eval_result.png)
 
 ## Features and Architecture
 The architecture of 4-One Bench utilize a **Generator-Verifier** design pattern. In this setup, the **Generator** converts tasks into routines based on predefined knowledge graphs , while the **Verifier** employs LLMs to validate generated.routines  
 
 Furthermore, the evaluation system has 4 "One" features:
 
-![Flow of LLMs-based Agent](arch-2.png)
+![Flow of LLMs-based Agent](images/arch-2.png)
 
 ### One-Query
 Our dataset includes 51 "one-sentence tasks". 
@@ -23,8 +27,10 @@ Considering the critical factors of response time and accuracy in real business 
 
 ### One-Syntax
 4-One Bench has developed a proprietary syntax for defining the orchestration of IT assets. Users also have the flexibility to create their own custom syntax.
+![Syntax](images/syntax.png)
 
 ## Demo
+
 ## Launch the evaluation
 1. Create and activate a new virtual environment 
 ```bash
