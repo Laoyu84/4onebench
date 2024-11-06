@@ -51,6 +51,7 @@ streamlit run app/app.py
 
 ## Contact
 Follow my public WeChat account to stay updated:
+
 ![qr_code](images/qr_code.jpg)
 
 or send email to uncleyu89@gmail.com for any questions.
