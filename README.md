@@ -10,7 +10,7 @@ We have conducted an evaluation of models from OpenAI, Zhipu, Ali Cloud, and Dou
 ![Flow of LLMs-based Agent](images/eval_result.png)
 
 ## Features and Architecture
-The architecture of 4-One Bench utilize a **Generator-Verifier** design pattern. In this setup, the **Generator** converts tasks into routines based on predefined knowledge graphs , while the **Verifier** employs LLMs to validate generated.routines  
+The architecture of 4-One Bench utilize a **Generator-Verifier** design pattern. In this setup, the **Generator** converts tasks into routines based on predefined knowledge graphs , while the **Verifier** employs LLMs to validate generated routines  
 
 Furthermore, the evaluation system has 4 "One" features:
 
@@ -49,6 +49,11 @@ pip install -r requirements.txt
 streamlit run app/app.py
 ```
 
+## Contact
+Follow my public WeChat account to stay updated:
+![qr_code](images/qr_code.jpg)
+
+or send email to uncleyu89@gmail.com for any questions.
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](./LICENSE) file for details.
