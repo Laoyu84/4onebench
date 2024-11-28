@@ -29,6 +29,12 @@ Considering the critical factors of response time and accuracy in real business 
 4-One Bench has developed a proprietary syntax for defining the orchestration of IT assets. Users also have the flexibility to create their own custom syntax.
 ![Syntax](images/syntax.png)
 
+## LLMs Supported
+1. OpenAI: gpt-4o, gpt-4o-mini; 
+2. Zhipu: glm-4-plus, glm-4-0520, glm-4-flash, glm-4-air;
+3. Ali Cloud: qwen-max, qwen-plus
+4. Bytedance: doubao-pro-32k
+5. Deepseek: deepseek-chat 
 ## Demo
 
 ## Launch the evaluation

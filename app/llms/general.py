@@ -1,5 +1,5 @@
 import os
-from llms import zhipu,openai,qwen,doubao
+from llms import zhipu,openai,qwen,doubao,deepseek
 from util import constant
 from util.tools import extract_json
 from util.logger import logger
@@ -25,6 +25,10 @@ def complete_verify(sys_msg, usr_msg):
         messages = doubao.format_messages(sys_msg,usr_msg)
         data_json = doubao.completion(messages, temperature=0, model=constant.DOUBAO_VERIFIER)
         result = extract_json(data_json)
+    elif model in constant.DEEPSEEK_FAMILY:
+        messages = deepseek.format_messages(sys_msg,usr_msg)
+        data_json = deepseek.completion(messages, temperature=1.0, model=constant.DEEPSEEK_VERIFIER)
+        result = extract_json(data_json) 
     return result
 
 
@@ -45,10 +49,15 @@ def complete(sys_msg, usr_msg):
         result = qwen.completion(messages, 
                                 model= model, 
                                 temperature=0)
-    elif model in constant.DOUBAOPRO32K:
+    elif model in constant.DOUBAO_FAMILY:
         messages = doubao.format_messages(sys_msg,usr_msg)
         result = doubao.completion(messages, 
                                 model= model, 
                                 temperature=0)
+    elif model in constant.DEEPSEEK_FAMILY:
+        messages = deepseek.format_messages(sys_msg,usr_msg)
+        result = deepseek.completion(messages, 
+                                model= model, 
+                                temperature=1.0)
     return result
     

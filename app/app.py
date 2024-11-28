@@ -49,7 +49,7 @@ if "few_shots" not in st.session_state:
 with st.sidebar:
     st.session_state.model = st.selectbox(
         "生成模型：", 
-        ('glm-4-plus','glm-4-0520', 'glm-4-flash','glm-4-air','gpt-4o','gpt-4o-mini','qwen-max', 'qwen-plus', 'doubao-pro-32k')
+        ('glm-4-plus','glm-4-0520', 'glm-4-flash','glm-4-air','gpt-4o','gpt-4o-mini','qwen-max', 'qwen-plus', 'doubao-pro-32k', 'deepseek-chat')
     )
     if st.session_state.model:
         os.environ['MODEL'] = st.session_state.model
@@ -59,7 +59,7 @@ with st.sidebar:
         END_POINT = st.text_input("模型接入点", placeholder="接入点名称")
         
     num_of_record = st.number_input("数据条数:", value=1, max_value=len(st.session_state.few_shots), min_value=1)
-    st.write(f"我们使用：\n1. **{constant.OPENAI_VERIFIER}** 验证 OpenAI 系列模型； \n2. **{constant.GLM_VERIFIER}** 验证 GLM 系列模型； \n3. **{constant.QWEN_VERIFIER}** 验证 QWEN 系列模型； \n4. **{constant.DOUBAO_VERIFIER}** 验证 DOUBAO 系列模型。")
+    st.write(f"我们使用：\n1. **{constant.OPENAI_VERIFIER}** 验证 OpenAI 系列模型； \n2. **{constant.GLM_VERIFIER}** 验证 GLM 系列模型； \n3. **{constant.QWEN_VERIFIER}** 验证 QWEN 系列模型； \n4. **{constant.DOUBAO_VERIFIER}** 验证 DOUBAO 系列模型。\n5. **{constant.DEEPSEEK_VERIFIER}** 验证 DEEPSEEK 系列模型。")
 
 # Setup tabs    
 tab_eval,tab_questionnir = st.tabs(["评估", "问题列表"])
